@@ -86,6 +86,7 @@ h2 {
 .tab {
        display:inline-block;
        margin-left: 20px;
+       color: #666;
 }
 
 /* Exercise sections */

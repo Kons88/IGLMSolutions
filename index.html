@@ -44,7 +44,7 @@
                 <br />
                 <br />
                 <blockquote>
-                  <p><i><u>A reminder from the book:</u></i></p>
+                  <p><i><u>A reminder from the book (Dobson, Annette J., 1945. An introduction to generalized linear models. Second Edition. pp. 14-15):</u></i></p>
                   <p>1. If the random variable \(Y\) has the Normal distribution with mean \(\mu\) and variance \(\sigma^2\), its probability density function is:
                      $$ f(y;\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}exp[-\frac{1}{2}(\frac{y-\mu}{\sigma^2})^2] $$
                      <span class="tab">We denote this by \(Y \sim \mathcal{N}(\mu,\sigma^2)\).</span>
@@ -82,19 +82,78 @@
                 <p>\(=4 \cdot Var(Y_1)-Cov(Y_1,Y_2)+8 \cdot Cov(Y_2,Y_1)-2 \cdot Var(Y_2)=4 \cdot 3-0+8 \cdot 0-2 \cdot 5=2 \Rightarrow Cov(W_1,W_2 )=2 \)</p>
                 <br />
                 <p>Therefore, the joint distribution will be:</p>
-                <p>
-                $$ \begin{bmatrix} W_1 \\ W_2 \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} 5 \\ 2 \end{bmatrix}, \begin{bmatrix} 23 & 2 \\ 2 & 53 \end{bmatrix} \right) $$
-                </p>
+                <p>$$ \begin{bmatrix} W_1 \\ W_2 \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} 5 \\ 2 \end{bmatrix}, \begin{bmatrix} 23 & 2 \\ 2 & 53 \end{bmatrix} \right) $$</p>
+                <br />
+                <p>The correlation coefficient between \(W_1\) and \(W_2\) in this case shall be:</p>
+                <p>$$ \rho=\frac{Cov(W_1,W_2)}{\sigma_(W_1 ) \cdot \sigma_(W_2)}=\frac{Cov(W_1,W_2)}{\sqrt{Var(W_1)} \cdot \sqrt{Var(W_2)}}=\frac{2}{\sqrt{23} \cdot \sqrt{53}} \approx \frac{2}{4.8 \cdot 7.3} \approx 0.057 \Rightarrow  ρ=0.057 $$</p>
+                <br />
+                <p>Therefore, another way to express the joint distribution, would be:</p>
+                <p>$$ f(W_1,W_2)= \frac{1}{2 \cdot \pi \cdot \sigma_{W_1} \cdot \sigma_{W_2} \cdot \sqrt{1-ρ^2}} exp[-\frac{Z_{W_1}^2-2 \cdot Z_{W_1} \cdot Z_{W_2}+Z_{W_2}^2}{2 \cdot \sqrt{1-\rho^2}}] \Rightarrow $$</p>
+                <p>$$ \Rightarrow f(W_1,W_2)=\frac{1}{2 \cdot \pi \cdot 4.8 \cdot 7.3 \cdot \sqrt{1-0.057^2}} exp[-\frac{Z_{W_1}^2-2 \cdot Z_{W_1} \cdot Z_{W_2}+Z_{W_2}^2}{2 \cdot \sqrt{1-0.057^2 }}] $$</p>
+                <br />
+                <p>where:</p>
+                <p>\( Z_{W_1}=\frac{W_1 - \mu_{W_1} }{ \sigma_{W_1}} \)</p>
+                <p>\( Z_{W_2}=\frac{W_2 - \mu_{W_2} }{ \sigma_{W_2}} \)</p>
+                <br />
             </section>
 
             <section id="exercise1.2" class="exercise-section">
                 <h3>Exercise 1.2:</h3>
-                <p>Let Y<sub>1</sub> and Y<sub>2</sub> be independent random variables with Y<sub>1</sub> ~ N(0, 1) and Y<sub>2</sub> ~ N(3, 4).</p>
+                <p>Let \(Y_1\) and \(Y_2\) be independent random variables with \(Y_1 \sim \mathcal{N}(0,1)\) and \(Y_2 \sim \mathcal{N}(3,4)\). </p>
+                <p><strong>a.</strong> What is the distribution of \(Y_1^2\)?</p>
+                <p><strong>b.</strong> If \(y=\begin{bmatrix} Y_1 \\ \frac{Y_2-3}{2} \end{bmatrix}\), obtain an expression for \(y^Ty\). What is its distribution?</p>
+                <p><strong>c.</strong> If \(y= \begin{bmatrix} Y_1 \\ Y_2 \end{bmatrix}\) and its distribution is \(y \sim \mathcal{N}(μ,V)\), obtain an expression for \(y^T V^{-1} y\). What is its distribution?</p>
                 <h4>Solution:</h4>
                 <br />
                 <br />
-                <p>a. The distribution of Y<sub>1</sub>² is χ²(1).</p>
-                <p>b. If y = Y<sub>1</sub>Y<sub>2</sub> - 3/2, the distribution of y can be derived using the multivariate normal distribution.</p>
+                <blockquote>
+                  <p><i><u>A reminder from the book (Dobson, Annette J., 1945. An introduction to generalized linear models. Second Edition. pp. 15-16):</u></i></p>
+                  <p>1. The <strong>central chi-squared distribution</strong> with \(n\) degrees of freedom is defined as the sum of squares of \(n\) independent random variables \(Z_1,…,Z_n\) each with the standard Normal distribution. It is denoted by:</p>
+                  <p> $$ \mathcal{X}^2= \sum_{i=1}^n Z_i^2 \sim \mathcal{\chi}^2 (n). $$</p>
+                  <span class="tab">In matrix notation, if \(z=[Z_1,…,Z_n ]^T\) then \(z^Tz=\sum_{i=1}^n Z_i^2\)  so that \( \mathcal{X}^2=z^T z \sim \chi^2 (n)\).</span>
+                  <br />
+                  <br />
+                  <p>2. If \(\mathcal{X}^2\) has the distribution \(\chi^2 (n)\), then its expected value is \(E(\mathcal{X}^2)=n\) and its variance is \(Var(\mathcal{X}^2)=2 \cdot n\).</p>
+                  <p>3. If \(Y_1,…,Y_n\) are independent Normally distributed random variables each with the distribution \(Y_i \sim \mathcal{N}(\mu_i,\sigma_i^2)\) then:</p>
+                  <p>$$ \mathcal{X}^2= \sum_{i=1}^n (\frac{Y_i-\mu_i}{\sigma_i})^2 \sim \chi^2 (n) $$</p>
+                  <span class="tab">because each of the variables \(Z_i= \frac{Y_i-\mu_i}{\sigma_i}\) has the standard Normal distribution \(\mathcal{N}(0,1)\).</span>
+                  <br />
+                  <br />
+                  <p>4.	Let \(Z_1,…,Z_n\) be independent random variables each with the distribution \(\mathcal{N}(0,1)\) and let \(Y_i=Z_i+\mu_i\), where at least one of the \(\mu_i\)’s is non-zero. Then the distribution of:</p>
+                  <p>$$ \sum Y_i^2=\sum (Z_i+\mu_i)^2=\sum Z_i^2+2 \cdot \sum Z_i \cdot \mu_i+ \sum \mu_i^2  $$</p>
+                  <span class="tab">has as larger mean \(n + \lambda\) and larger variance \(2 \cdot n + 4 \cdot \lambda\) than \(\chi^2 (n)\) where \(\lambda = \sum \mu_i^2\). This is called the <strong>non-central chi-squared distribution</strong> with \(n\) degrees of freedom and <strong>non-centrality parameter</strong> \(\lambda\). It is denoted by \(\chi^2 (n,\lambda)\).</span>
+                  <br />
+                  <br />
+                  <p>5. Suppose that the \(Y_i\)’s are not necessarily independent and the vector \(y=[Y_1,…,Y_n ]^T\) has the multivariate normal distribution \(y \sim \mathcal{N}(\mu,V)\) where the variance-covariance matrix \(V\) is non-singular and its inverse is \(V^{-1}\). Then:</p>
+                  <p>$$ \mathcal{X}^2=(y-\mu)^Τ V^{-1} (y-\mu) \sim \chi^2 (n) $$</p>
+                  <p>6. More generally if \(y \sim \mathcal{N}(\mu,V)\) then the random variable \(y^Τ V^{-1} y\) has the non-central chi-squared distribution \(\chi^2 (n,\lambda)\) where \(\lambda=\mu^Τ V^{-1} \mu\).</p>
+                  <br />
+                  <p>7. If \(X_1^2,…,X_m^2\) are \(m\) independent random variables with the chi-squared distributions \(\mathcal{X}_i^2 \sim \chi^2 (n_i, \lambda_i)\), which may or may not be central, then their sum also has a chi-squared distribution with \(\sum n_i\)  degrees of freedom and non-centrality parameter \(\sum \lambda_i\) , i.e.,</p>
+                  <p>$$ \sum_{i=1}^m \mathcal{X}_i^2 \sim \chi^2 (\sum_{i=1}^m n_i, \sum_{i=1}^m \lambda_i) $$</p>
+                  <span class="tab">This is called the <strong>reproductive property</strong> of the chi-squared distribution.</span>
+                  <br />
+                  <br />
+                  <p>8.	Let \(y \sim \mathcal{N}(\mu,V)\), where \(y\) has \(n\) elements but the \(Y_i\)’s are not independent so that \(V\) is singular with rank \(k < n\) and the inverse of \(V\) is not uniquely defined. Let \(V^-\) denote a generalized inverse of \(V\). Then the random variable \(y^T V^- y\) has the non-central chi-squared distribution with \(k\) degrees of freedom and non-centrality parameter \(\lambda=\mu^Τ V^- \mu\).</p>
+                </blockquote>
+                <br />
+                <p><strong>a.</strong> The chi-squared distribution with \(k\) degrees of freedom, \(\chi^2 (k)\), is the distribution of the sum of the squares of \(k\) independent standard normal random variables. If \(Y_1\) is a random variable following a normal distribution with mean \(\mu=0\) and variance \(\sigma^2=1\) \((Y_1 \sim \mathcal{N}(0,1))\), then the distribution of \(Y_1^2\) is a special case of the chi-squared distribution with one degree of freedom, \(\chi^2 (1)\). Meaning that:</p>
+                <p>$$ Y_1^2 \sim \chi^2 (1) $$</p>
+                <blockquote>
+                  <p>The chi-squared distribution with 1 degree of freedom is sometimes referred to as the exponential distribution with rate parameter \(\lambda=2\) \((mean=\frac{1}{\lambda}=\frac{1}{2}, variance = \frac{1}{\lambda^2} = \frac{1}{4})\).</p>
+                  <p>So, the distribution of \(Y_1^2\) is \(\chi^2 (1)\) or equivalently, an exponential distribution with rate parameter \(\lambda=2\).</p>
+                </blockquote>
+                <br />
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <br />
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <br />
+                <br />
             </section>
 
             <section id="exercise1.3" class="exercise-section">
