@@ -221,10 +221,17 @@
                 <br />
                 <hr />
                 <br />
-                <p><strong>a.</strong> </p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p><strong>a.</strong> First, let us compute the inverse of Variance-Covariance matrix \(V\), \(V^{-1}\) as it will be needed. So:</p>
+                <p>\( V^{-1}=\frac{1}{4 \cdot 9-1 \cdot 1} \begin{bmatrix} 9 & -1 \\ -1 & 4 \end{bmatrix} = \frac{1}{35} \begin{bmatrix} 9 & -1 \\ -1 & 4 \end{bmatrix} \Rightarrow V^{-1}=  \begin{bmatrix} \frac{9}{35} & -\frac{1}{35} \\ -\frac{1}{35} & \frac{4}{35} \end{bmatrix} \)</p>
+                <p>Since \(y= \begin{bmatrix} Y_1 \\ Y_2 \end{bmatrix}\) and \( \mu=\begin{bmatrix} 2 \\ 3 \end{bmatrix}\), then their difference shall be:</p>
+                <p>\( y-\mu=\begin{bmatrix} Y_1 \\ Y_2 \end{bmatrix}-\begin{bmatrix} 2 \\ 3 \end{bmatrix}=\begin{bmatrix} Y_1-2 \\ Y_2-3 \end{bmatrix} \)</p>
+                <p>And therefore, the joint distribution, will have the following form:</p>
+                <p>$$ (y-\mu)^T V^{-1} (y-\mu)= \begin{bmatrix} Y_1-2 & Y_2-3 \end{bmatrix} \begin{bmatrix} \frac{9}{35} & -\frac{1}{35} \\ -\frac{1}{35} & \frac{4}{35} \end{bmatrix} \begin{bmatrix} Y_1-2 \\ Y_2-3 \end{bmatrix}= $$</p>
+                <p>$$ = \begin{bmatrix} \frac{9}{35} (Y_1-2)-\frac{1}{35} (Y_2-3) & -\frac{1}{35} (Y_1-2)+ \frac{4}{35} (Y_2-3) \end{bmatrix} \begin{bmatrix} Y_1-2 \\ Y_2-3 \end{bmatrix}= $$</p>
+                <p>$$ = \frac{9}{35} (Y_1-2)^2-\frac{1}{35} (Y_2-3)(Y_1-2)-\frac{1}{35} (Y_1-2)(Y_2-3)+\frac{4}{35} (Y_2-3)^2 \Rightarrow $$</p>
+                <p>$$ \Rightarrow (y-μ)^T V^{-1} (y-μ)=\frac{9}{35} (Y_1-2)^2-\frac{2}{35} (Y_1-2)(Y_2-3)+\frac{4}{35} (Y_2-3)^2 $$</p>
+                <p>From property 5, we know that for a multivariate normal distribution \(y \sim \mathcal{N}(\mu,V)\), the quadratic form \((y-\mu)^T V^{-1} (y-\mu)\) follows a chi-squared distribution with degrees of freedom equal to the dimension of \(y\) (and in this case, we have only two dimensions), and therefore:</p>
+                <p>$$ (y-μ)^T V^{-1} (y-μ)=\frac{9}{35} (Y_1-2)^2-\frac{2}{35} (Y_1-2)(Y_2-3)+\frac{4}{35} (Y_2-3)^2 \sim \chi_2^2 $$</p>
                 <br />
                 <hr />
                 <br />
