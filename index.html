@@ -235,17 +235,40 @@
                 <br />
                 <hr />
                 <br />
-                <p><strong>b.</strong></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p><strong>b.</strong> From the previous question (a), we already know that:</p>
+                <p>\( V^{-1}=  \begin{bmatrix} \frac{9}{35} & -\frac{1}{35} \\ -\frac{1}{35} & \frac{4}{35} \end{bmatrix} \)</p>
+                <p>And therefore, the expression for \(y^T V^{-1} y\) shall be:</p>
+                <p>$$ y^T V^{-1} y= \begin{bmatrix} Y_1 & Y_2 \end{bmatrix} \begin{bmatrix} \frac{9}{35} & -\frac{1}{35} \\ -\frac{1}{35} & \frac{4}{35} \end{bmatrix} \begin{bmatrix} Y_1 \\ Y_2 \end{bmatrix}= \begin{bmatrix} \frac{9}{35} \cdot Y_1-\frac{1}{35} \cdot Y_2 & -\frac{1}{35} \cdot Y_1 + \frac{4}{35} \cdot Y_2 \end{bmatrix} \begin{bmatrix} Y_1 \\ Y_2 \end{bmatrix}= $$</p>
+                <p>$$ = \frac{9}{35} \cdot Y_1^2-\frac{1}{35} \cdot Y_1 \cdot Y_2-\frac{1}{35} \cdot Y_2 \cdot Y_1  + \frac{4}{35} \cdot Y_2^2  \Rightarrow $$</p>
+                <p>$$ \Rightarrow y^T V^{-1} y = \frac{9}{35} \cdot Y_1^2-\frac{2}{35} \cdot Y_1 \cdot Y_2  +\frac{4}{35} \cdot Y_2^2 $$</p>
+                <p>Now, the distribution of \(y^T V^{-1} y\) is a more general case of the one described in the previous question (a) and thus follows property 6, meaning that: “if \(y \sim \mathcal{N}(μ,V)\) then the random variable \(y^Τ V^{-1} y\) has the non-central chi-squared distribution \(\chi_n^2 (\lambda)\) where \(\lambda=\mu^Τ V^{-1} \mu\).”</p>
+                <p>In our case, \(y\) can be written as \(y=\mu+Ζ\), where: \(Ζ \sim \mathcal{N}(0,V)\). So if we expanded on this, we would have:</p>
+                <p>\( y^T V^{-1} y=(\mu+Ζ)^T V^{-1} (\mu+Ζ)=\mu^T V^{-1} \mu+2 \cdot \mu^T V^{-1} Z+Z^T V^{-1} Z \)</p>
+                <p>with:</p>
+                <ul class="tab">
+                    <li>	\(Z^T V^{-1} Z \sim \chi_2^2\), because \(Z \sim \mathcal{N}(0,V)\), and the quadratic form of a multivariate normal distribution follows a chi-squared distribution with degrees of freedom equal to the dimension of \(Z\) (which is 2).</li>
+                    <li>	\(2 \cdot \mu^T V^{-1} Z\) is normally distributed with a mean of 0.</li>
+                </ul>
+                <br>
+                <br>
+                <p>Thus \(y^T V^{-1} y\) is a sum of a chi-squared distribution and a normal distribution. This means that \(y^T V^{-1} y\) follows a non-central chi-squared distribution with 2 degrees of freedom and a non-centrality parameter \(\lambda=\mu^T V^{-1} \mu\), which is:</p>
+                <p>$$ \lambda=\mu^T V^{-1} \mu=\begin{bmatrix} 2 & 3 \end{bmatrix} \begin{bmatrix} \frac{9}{35} & -\frac{1}{35} \\ -\frac{1}{35} & \frac{4}{35}) \end{bmatrix} \begin{bmatrix}2 \\ 3 \end{bmatrix}= \begin{bmatrix} \frac{18}{35}-\frac{3}{35} & -\frac{2}{35}+\frac{12}{35}\end{bmatrix} \begin{bmatrix} 2 \\ 3 \end{bmatrix}= $$</p>
+                <p>$$ = \begin{bmatrix} \frac{15}{35} & \frac{10}{35} \end{bmatrix} \begin{bmatrix} 2 \\ 3 \end{bmatrix} = \frac{30}{35}+\frac{30}{35}=\frac{60}{35} \Rightarrow \lambda=\frac{12}{7} $$</p>
+                <p>Therefore, in conclusion:</p>
+                <p>$$ y^T V^{-1} y = \frac{9}{35} \cdot Y_1^2-\frac{2}{35} \cdot Y_1 \cdot Y_2  +\frac{4}{35} \cdot Y_2^2 \sim \chi_2^2 (\frac{12}{7}) $$</p>
                 <br />
                 <br />
             </section>
 
             <section id="exercise1.4" class="exercise-section">
                 <h3>Exercise 1.4:</h3>
-                <p></p>
+                <p>Let \(Y_1,…,Y_n\) be independent random variables each with the distribution \(\mathcal{N}(\mu,\sigma^2)\). Let:</p>
+                <p> $$ \overline{Y} = \frac{1}{n} \sum_{i=1}^n Y_i   \  \   and    \  \     S^2= \frac{1}{n-1} \sum_{i=1}^n (Y_i-\overline{Y})^2. $$</p>
+                <p><strong>a.</strong> What is the distribution of \(\overline{Y}\)?</p>
+                <p><strong>b.</strong> Show that \(S^2=\frac{1}{n-1} [\sum_{i=1}^n (Y_i-\mu)^2-n(\overline{Y}-\mu)^2 ]\).</p>
+                <p><strong>c.</strong> From (b) it follows that \(\sum\frac{(Y_i-\mu)^2}{σ^2} =(n-1)\frac{S^2}{\sigma^2} + [\frac{(\overline{Y}-\mu)^2 n}{\sigma^2} ]\). How does this allow you to deduce that \(Y\) and \(S^2\) are independent?</p>
+                <p><strong>d.</strong> What is the distribution of \((n-1)\frac{S^2}{\sigma^2}\)?</p>
+                <p><strong>e.</strong> What is the distribution of \(\frac{\overline{Y} - \mu}{\frac{S}{\sqrt{n}}}\) ?</p>
                 <h4>Solution:</h4>
                 <p></p>
                 <p></p>
