@@ -169,6 +169,18 @@
                 <p>While the Variance-Covariance matrix \(V\), is a diagonal matrix, because \(Y_1\) and \(Y_2\) are independent and it is:</p>
                 <p>\( V= \begin{bmatrix}1 & 0 \\ 0 & 4\end{bmatrix} \)</p>
                 <p>Let us also compute the inverse of Variance-Covariance matrix \(V\), \(V^{-1}\), as it will be used:</p>
+                <blockquote>
+                  <p><u>How to calculate the inverse of a 2x2 matrix:</u></p>
+                  <p>A 2x2 matrix has the following general form:</p>
+                  <p>\( A=\begin{bmatrix} a & b \\ c & d \end{bmatrix} \)</p>
+                  <p>Its inverse then shall be:</p>
+                  <p>\( A^{-1}=\frac{1}{det(A)} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix} = \frac{1}{a \cdot d - b \cdot c} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix} \)</p>
+                  <p>Here, \(det(A)\) is the determinant of the matrix \(A\), and it must be non-zero for the inverse to exist. It becomes zero in the following cases: </p>
+                  <ol class="tab">
+                      <li>When the rows (or columns) of the matrix are linearly dependent, meaning one row is a scalar multiple of the other. For example, if the second row is \(k\) times the first row, then the matrix is singular, and the determinant is zero.</li>
+                      <li>When the matrix represents a transformation that collapses the space into a lower dimension. For example, if the matrix represents a 2D transformation, a zero determinant means that the transformation squashes the 2D space into a 1D line, resulting in the loss of area (since the transformation is non-invertible). So if the determinant represents the area of the parallelogram formed by the row or column vectors, when the determinant is zero, the parallelogram collapses to a line or point, implying no area.</li>
+                  </ol>
+                </blockquote>
                 <p>\( V^{-1}=\frac{1}{1 \cdot 4-0 \cdot 0} \begin{bmatrix}4&0\\0&1\end{bmatrix}=\frac{1}{4} \begin{bmatrix}4&0\\0&1\end{bmatrix} \Rightarrow V^{-1}= \begin{bmatrix}1&0\\0 & \frac{1}{4}\end{bmatrix} \)</p>
                 <p>Now, an expression for \(y^T V^{-1} y\), will be:</p>
                 <p>$$ y^T V^{-1} y= \begin{bmatrix}Y_1&Y_2 \end{bmatrix} \begin{bmatrix}1&0\\0 & \frac{1}{4}\end{bmatrix} \begin{bmatrix}Y_1 \\ Y_2 \end{bmatrix} =\begin{bmatrix}Y_1 & \frac{Y_2}{4} \end{bmatrix}\begin{bmatrix}Y_1 \\ Y_2 \end{bmatrix} \Rightarrow y^T V^{-1} y=Y_1^2+\frac{Y_2^2}{4} $$</p>
@@ -221,7 +233,19 @@
                 <br />
                 <hr />
                 <br />
-                <p><strong>a.</strong> First, let us compute the inverse of Variance-Covariance matrix \(V\), \(V^{-1}\) as it will be needed. So:</p>
+                <p><strong>a.</strong> First, let us compute the inverse of Variance-Covariance matrix \(V\), \(V^{-1}\), as it will be needed. So:</p>
+                <blockquote>
+                  <p><u>How to calculate the inverse of a 2x2 matrix:</u></p>
+                  <p>A 2x2 matrix has the following general form:</p>
+                  <p>\( A=\begin{bmatrix} a & b \\ c & d \end{bmatrix} \)</p>
+                  <p>Its inverse then shall be:</p>
+                  <p>\( A^{-1}=\frac{1}{det(A)} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix} = \frac{1}{a \cdot d - b \cdot c} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix} \)</p>
+                  <p>Here, \(det(A)\) is the determinant of the matrix \(A\), and it must be non-zero for the inverse to exist. It becomes zero in the following cases: </p>
+                  <ol class="tab">
+                      <li>When the rows (or columns) of the matrix are linearly dependent, meaning one row is a scalar multiple of the other. For example, if the second row is \(k\) times the first row, then the matrix is singular, and the determinant is zero.</li>
+                      <li>When the matrix represents a transformation that collapses the space into a lower dimension. For example, if the matrix represents a 2D transformation, a zero determinant means that the transformation squashes the 2D space into a 1D line, resulting in the loss of area (since the transformation is non-invertible). So if the determinant represents the area of the parallelogram formed by the row or column vectors, when the determinant is zero, the parallelogram collapses to a line or point, implying no area.</li>
+                  </ol>
+                </blockquote>
                 <p>\( V^{-1}=\frac{1}{4 \cdot 9-1 \cdot 1} \begin{bmatrix} 9 & -1 \\ -1 & 4 \end{bmatrix} = \frac{1}{35} \begin{bmatrix} 9 & -1 \\ -1 & 4 \end{bmatrix} \Rightarrow V^{-1}=  \begin{bmatrix} \frac{9}{35} & -\frac{1}{35} \\ -\frac{1}{35} & \frac{4}{35} \end{bmatrix} \)</p>
                 <p>Since \(y= \begin{bmatrix} Y_1 \\ Y_2 \end{bmatrix}\) and \( \mu=\begin{bmatrix} 2 \\ 3 \end{bmatrix}\), then their difference shall be:</p>
                 <p>\( y-\mu=\begin{bmatrix} Y_1 \\ Y_2 \end{bmatrix}-\begin{bmatrix} 2 \\ 3 \end{bmatrix}=\begin{bmatrix} Y_1-2 \\ Y_2-3 \end{bmatrix} \)</p>
@@ -270,6 +294,40 @@
                 <p><strong>d.</strong> What is the distribution of \((n-1)\frac{S^2}{\sigma^2}\)?</p>
                 <p><strong>e.</strong> What is the distribution of \(\frac{\overline{Y} - \mu}{\frac{S}{\sqrt{n}}}\) ?</p>
                 <h4>Solution:</h4>
+                <br />
+                <br />
+                <p><strong>a.</strong> Since the \(Y_i\) are independent and each has the distribution \(\mathcal{N}(\mu,\sigma^2)\), the expectation of \(\overline{Y}\) is:</p>
+                <p>\( Ε(\overline{Y})=Ε[\frac{1}{n} \sum_{i=1}^n Y_i ]=\frac{1}{n} \sum_{i=1}^n E[Y_i]= \frac{1}{n} \cdot n \cdot \mu=\mu \)</p>
+                <p>while its variance is:</p>
+                <p>\( Var(\overline{Y})=Var(\frac{1}{n} \sum_{i=1}^n Y_i)=\frac{1}{n}^2  \sum_{i=1}^n Var(Y_i) = \frac{1}{n^2} \cdot n \cdot \sigma^2=\frac{\sigma^2}{n} \)</p>
+                <p>We know that \(\overline{Y}\) consists of a linear combination of independent, normally distributed variables and therefore it is itself normally distributed. Thus, the distribution of \(\overline{Y}\) shall be:</p>
+                <p>$$ \overline{Y} \sim \mathcal{N}(\mu,\frac{\sigma^2}{n}) $$</p>
+                <br />
+                <hr />
+                <br />
+                <p><strong>b.</strong> </p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <br />
+                <hr />
+                <br />
+                <p><strong>c.</strong> </p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <br />
+                <hr />
+                <br />
+                <p><strong>d.</strong> </p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <br />
+                <hr />
+                <br />
+                <p><strong>e.</strong> </p>
+                <p></p>
                 <p></p>
                 <p></p>
                 <br />
