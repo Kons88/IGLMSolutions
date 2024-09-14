@@ -305,10 +305,14 @@
                 <br />
                 <hr />
                 <br />
-                <p><strong>b.</strong> </p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p><strong>b.</strong> Let us start from the definition of the sample variance:</p>
+                <p>$$ S^2 = \frac{1}{n-1} \sum_{i=1}^n (Y_i-\overline{Y})^2 = \frac{1}{n-1} \sum_{i=1}^n [(Y_i-\mu)-(\overline{Y}-\mu)]^2=$$</p>
+                <p>$$ = \frac{1}{n-1} \sum_{i=1}^n [(Y_i-\mu)^2 - 2 \cdot (Y_i-\mu)(\overline{Y}-\mu)+(\overline{Y}-\mu)^2 ] = $$</p>
+                <p>$$ = \frac{1}{n-1} [\sum_{i=1}^n(Y_i-\mu)^2 - \sum_{i=1}^n 2 \cdot (Y_i-\mu)(\overline{Y}-\mu)+\sum_{i=1}^n(\overline{Y}-\mu)^2]= $$</p>
+                <p>$$ = \frac{1}{n-1} [\sum_{i=1}^n(Y_i-\mu)^2 - 2 \cdot (\overline{Y}-\mu) \sum_{i=1}^n(Y_i-\mu)+\sum_{i=1}^n (\overline{Y}-\mu)^2]= $$</p>
+                <p>$$ = \frac{1}{n-1} [\sum_{i=1}^n(Y_i-\mu)^2 - 2 \cdot (\overline{Y}-\mu) \cdot n \cdot (\overline{Y}-\mu) + n \cdot (\overline{Y}-\mu)^2]= $$</p>
+                <p>$$ = \frac{1}{n-1} [\sum_{i=1}^n(Y_i-\mu)^2 - 2 \cdot n \cdot (\overline{Y}-\mu)^2 + n \cdot (\overline{Y}-\mu)^2 ] \Rightarrow $$</p>
+                <p>$$ \Rightarrow S^2 = \frac{1}{n-1} [\sum_{i=1}^n (Y_i-\mu)^2 - n \cdot (\overline{Y}-\mu)^2 ] $$</p>
                 <br />
                 <hr />
                 <br />
