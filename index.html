@@ -316,10 +316,40 @@
                 <br />
                 <hr />
                 <br />
-                <p><strong>c.</strong> </p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p><strong>c.</strong> We are given the following expression:</p>
+                <p>$$ \frac{\sum_{i=1}^n (Y_i-\mu)^2}{\sigma^2} =\frac{(n-1) S^2}{\sigma^2} + \frac{n(\overline{Y}-\mu)^2}{\sigma^2}  $$</p>
+                <p>So, why are Y and S^2 independent? Let us look at the two right hand terms one by one.</p>
+                <br />
+                <p>Firstly, let us discuss the term:</p>
+                <p>\( \frac{(n-1) S^2}{\sigma^2} \)</p>
+                <p>Here \(S^2\) is the sample variance, which is defined as:</p>
+                <p>\( S^2= \frac{1}{n-1} \sum_{i=1}^n (Y_i-\overline{Y} )^2  \)</p>
+                <p>Therefore:</p>
+                <p>\( \frac{(n-1) S^2}{\sigma^2} = \frac{n-1}{\sigma^2} \cdot \frac{1}{n-1} \sum_{i=1}^n (Y_i-\overline{Y} )^2 = \frac{1}{\sigma^2}  \sum_{i=1}^n (Y_i-\overline{Y} )^2  \)</p>
+                <p>The sample variance measures the spread of the individual \(Y_i\)’s around the sample mean \(\overline{Y}\). This involves \(n-1\) degrees of freedom because the calculation of \(S^2\) depends on \(n\) data points, but the sample mean \(\overline{Y}\) is used to estimate the center of the data, reducing the degrees of freedom by 1.</p>
+                <p>Thus, under the assumption that the \(Y_i\)’s are normally distributed, the sum of squares, which was defined above, follows a chi-squared distribution with \(n-1\) degrees of freedom:</p>
+                <p>$$ \frac{(n-1) S^2}{\sigma^2} \sim \chi_{n-1}^2 $$</p>
+                <br />
+                <p>Secondly, let us discuss the term:</p>
+                <p>\( \frac{n(\overline{Y}-\mu)^2}{\sigma^2} \)</p>
+                <p>And from question <strong>a</strong>, we already know that:</p>
+                <p>\( \overline{Y} \sim \mathcal{N}(\mu,\frac{\sigma^2}{n}) \)</p>
+                <p>Therefore:</p>
+                <p>\( \frac{n(\overline{Y}-\mu)^2}{\sigma^2} = (\frac{\overline{Y}-\mu}{\frac{\sigma}{\sqrt{n}}})^2 \sim Ζ^2 \)</p>
+                <p>where \(Z\) is a standard normal random variable, \(Z \sim \mathcal{N}(0,1)\). And hence:</p>
+                <p>$$ \frac{n(\overline{Y}-\mu)^2}{\sigma^2} \sim \chi_1^2 $$</p>
+                <p>Since the total sum of squares can be split into two independent components, one involving \(\overline{Y}\) and the other involving \(S^2\), then by Cochran’s Theorem, the chi-squared terms must be independent. More formally, the independence of \(\chi_1^2\) and \(\chi_{n-1}^2\) implies that \(\overline{Y}\) and \(S^2\) are independent.</p>
+                <br>
+                <blockquote>
+                  <p><u><i>Cochran’s Theorem:</i></u></p>
+                  <p>Cochran's Theorem provides a way to decompose sums of squared normal random variables into independent chi-squared distributions. Specifically, if you have a set of independent normal random variables \(Y_1,Y_2,…,Y_n\) drawn from \(\mathcal{N}(\mu,\sigma^2)\). In our example, Cochran's Theorem states that the total sum of squares:</p>
+                  <p>$$ \sum_{i=1}^n (Y_i-\mu)^2  $$</p>
+                  <p>can be decomposed into two independent components:</p>
+                  <p>\( \frac{n(\overline{Y}-\mu)^2}{\sigma^2} \sim \chi_1^2 \)</p>
+                  <p>\( \frac{(n-1) S^2}{\sigma^2} \sim \chi_{n-1}^2\)</p>
+                </blockquote>
+                <br>
+                <p>This result is a key property of normal distributions and is a consequence of the fact that the sample mean \(\overline{Y}\) and sample variance \(S^2\) capture independent aspects of the data. \(\overline{Y}\) captures location (center), while \(S^2\) captures spread (variability) around the center.</p>
                 <br />
                 <hr />
                 <br />
