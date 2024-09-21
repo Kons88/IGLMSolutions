@@ -386,10 +386,17 @@
                 <br />
                 <hr />
                 <br />
-                <p><strong>b.</strong></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p><strong>b.</strong> Given that \(Y_1,…,Y_n\) are independent Poisson random variables with parameter \(\theta=e^\beta\), the probability mass function for each \(Y_i\) is:</p>
+                <p>$$ P(Y_i=y_i) = \frac{(e^\beta)^{y_i} \cdot e^{-e^\beta}}{y_i!} $$</p>
+                <p>The likelihood function \(L(β)\) is the product of the individual probabilities for all \(Y_i\)'s:</p>
+                <p>$$ L(β) = \prod_{i=1}^n P(Y_i=y_i) = \prod_{i=1}^n \frac{(e^\beta)^{y_i} \cdot e^{-e^\beta}}{y_i!} = \frac{(e^\beta)^{\sum_{i=1}^n y_i} \cdot e^{-n \cdot e^\beta}}{\prod_{i=1}^n y_i!} $$</p>
+                <p>The log-likelihood function \(l(\beta)\) is the natural logarithm of the likelihood function:</p>
+                <p>$$ l(\beta) = lnL(\beta) = ln(\frac{(e^\beta)^{\sum_{i=1}^n y_i} \cdot e^{-n \cdot e^\beta}}{\prod_{i=1}^n y_i!}) = ln[(e^\beta)^{∑_{i=1}^n y_i}] + ln[e^{-n \cdot e^β}] - ln[\prod_{i=1}^n y_i!] \Rightarrow $$</p>
+                <p>$$ \Rightarrow l(\beta) = \beta \cdot \sum_{i=1}^n y_i -n \cdot e^β - ln[\prod_{i=1}^n y_i!] $$</p>
+                <p>To find the maximum likelihood estimator of \(\beta\), we take the derivative of \(l(\beta)\) with respect to \(\beta\) and set it equal to zero:</p>
+                <p>$$ \frac{d}{dβ} l(\beta) = 0 \Rightarrow \frac{d}{dβ} (\beta \cdot \sum_{i=1}^n y_i) - \frac{d}{dβ} (n \cdot e^β) - \frac{d}{dβ} (ln[\prod_{i=1}^n y_i!]) = 0 \Rightarrow $$</p>
+                <p>$$ \Rightarrow \sum_{i=1}^n y_i -n \cdot e^\beta-0=0 \Rightarrow e^\beta= \frac{1}{n} \cdot \sum_{i=1}^n y_i \Rightarrow e^\beta = \overline{Y} \Rightarrow ln(e^\beta) = ln(\overline{Y}) \Rightarrow $$</p>
+                <p>$$ \Rightarrow \beta = ln(\overline{Y}) $$</p>
                 <br />
                 <hr />
                 <br />
