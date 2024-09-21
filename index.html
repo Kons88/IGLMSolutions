@@ -376,10 +376,13 @@
                 <h4>Solution:</h4>
                 <br />
                 <br />
-                <p><strong>a.</strong> </p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p><strong>a.</strong> We are given that \(Y_1,…,Y_n\) are independent Poisson random variables with the parameter \(\theta\). Therefore:</p>
+                <p>$$ E(Y_i)=\sum_{k=0}^\infty k \cdot P(Y_i=k) = \sum_{k=0}^\infty k \cdot \frac{\theta^k \cdot e^{-\theta}}{k!} $$</p>
+                <p>However, when \(k=0\), the whole term becomes zero, thus it is superfluous in our expression. We can take it out:</p>
+                <p>$$ E(Y_i) = \sum_{k=1}^\infty k \cdot \frac{\theta^k \cdot e^{-\theta}}{k!} = \sum_{k=1}^\infty \frac{\theta^k \cdot e^{-\theta}}{(k-1)!} = e^{-\theta} \sum_{k=1}^\infty \frac{\theta^k}{(k-1)!} = e^{-\theta} \sum_{k=1}^\infty \frac{\theta \cdot \theta^{k-1}}{(k-1)!} \Rightarrow $$</p>
+                <p>$$ \Rightarrow E(Y_i) = \theta \cdot e^{-\theta} \sum_{k=1}^\infty \frac{\theta^{k-1}}{(k-1)!} $$</p>
+                <p>Setting \(j=k-1\), we get:</p>
+                <p>$$ E(Y_i) = \theta \cdot e^{-\theta} \sum_{j=0}^\infty \frac{\theta^j}{j!} = \theta \cdot e^{-\theta} \cdot e^\theta \Rightarrow E(Y_i)=\theta $$</p>
                 <br />
                 <hr />
                 <br />
