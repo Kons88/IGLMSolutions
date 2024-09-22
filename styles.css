@@ -26,11 +26,16 @@ h2 {
     color: #555;
 }
 
+h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
 .container {
     display: flex;
 }
 
-/* Sidebar */
 #sidebar {
     width: 200px;
     background-color: #ddd;
@@ -40,7 +45,7 @@ h2 {
 }
 
 #sidebar h3 {
-    font-size: 1.0em;
+    font-size: 1.2em; /* Adjusted for sidebar */
     color: #333;
     margin-bottom: 10px;
 }
@@ -74,7 +79,6 @@ h2 {
     background-color: #bbb;
 }
 
-/* Main content */
 #main-content {
     flex: 1;
     background-color: #fff;
@@ -84,20 +88,13 @@ h2 {
 }
 
 .tab {
-       display:inline-block;
-       margin-left: 20px;
-       color: #666;
+    display: inline-block;
+    margin-left: 20px;
+    color: #666;
 }
 
-/* Exercise sections */
 .exercise-section {
     display: none;
-}
-
-h3 {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 10px;
 }
 
 p, blockquote {
@@ -118,4 +115,30 @@ footer {
     margin-top: 20px;
     font-size: 0.9em;
     color: #777;
+}
+
+table {
+    width: 40%;
+    margin: 10px auto;
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+th {
+    background-color: #808080;
+    color: #EEEEEE;
 }

@@ -400,20 +400,114 @@
                 <br />
                 <hr />
                 <br />
-                <p><strong>c.</strong></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p><strong>c.</strong> To minimize \(S\), we need to take the derivative of \(S\) with respect to \(\beta\) and set it equal to zero, so in other words:</p>
+                <p>$$ \frac{d}{dβ} (S)=0 \Rightarrow \frac{d}{dβ} [\sum_{i=1}^n (Y_i-e^\beta)^2]=0 \Rightarrow \sum_{i=1}^n 2 \cdot (Y_i-e^\beta) \cdot (-e^\beta)=0 \Rightarrow $$</p>
+                <p>$$ \Rightarrow -2 \cdot \sum_{i=1}^n (Y_i-e^\beta) \cdot (e^\beta )=0 \Rightarrow \sum_{i=1}^n (Y_i-e^\beta) \cdot (e^\beta)=0 \Rightarrow \sum_{i=1}^n Y_i \cdot e^\beta - \sum_{i=1}^n e^{2\beta} =0 \Rightarrow $$</p>
+                <p>$$ \Rightarrow e^\beta \cdot \sum_{i=1}^n Y_i-n \cdot e^{2\beta}=0 \Rightarrow \sum_{i=1}^n Y_i-n \cdot e^\beta =0 \Rightarrow \sum_{i=1}^n Y_i=n \cdot e^\beta \Rightarrow e^\beta= \frac{1}{n} \cdot \sum_{i=1}^n Y_i \Rightarrow $$</p>
+                <p>$$ \Rightarrow \beta = ln(\overline{Y}) $$</p>
                 <br />
                 <br />
             </section>
 
             <section id="exercise1.6" class="exercise-section">
                 <h3>Exercise 1.6:</h3>
-                <p></p>
-                <p><strong>a.</strong> </p>
-                <p><strong>b.</strong> </p>
-                <p><strong>c.</strong> </p>
+                <p>The data below are the numbers of females and males in the progeny of 16 female light brown apple moths in Muswellbrook, New South Wales, Australia (from Lewis, 1987).</p>
+                  <table border="1" cellpadding="5" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Progeny Group</th>
+                        <th>Females</th>
+                        <th>Males</th>
+                      </tr>
+                    </thead>
+                  <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>18</td>
+                        <td>11</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>31</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>34</td>
+                        <td>27</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>33</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>27</td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>33</td>
+                        <td>29</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>28</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>23</td>
+                        <td>26</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>33</td>
+                        <td>38</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>12</td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>19</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>25</td>
+                        <td>31</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>4</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>22</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>7</td>
+                        <td>12</td>
+                    </tr>
+                </tbody>
+                </table>
+                <p><strong>a.</strong> Calculate the proportion of females in each of the 16 groups of progeny.</p>
+                <p><strong>b.</strong> Let \(Y_i\) denote the number of females and \(n_i\) the number of progeny in each group \((i=1,...,16)\). Suppose the \(Y_i\)’s are independent random variables each with the binomial distribution:</p>
+                <p>\( f(y_i;\theta)= \binom{n_i}{y_i} \cdot \theta^{y_i} \cdot (1-\theta)^{n_i-y_i} \)</p>
+                <p>Find the maximum likelihood estimator of \(\theta\) using calculus and evaluate it for these data.</p>
+                <p><strong>c.</strong> Use a numerical method to estimate \(\hat{\theta}\) and compare the answer with the one from (b).</p>
                 <h4>Solution:</h4>
                 <br />
                 <br />
