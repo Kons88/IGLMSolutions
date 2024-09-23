@@ -33,19 +33,18 @@ h2 {
 /* General container layout */
 .container {
     display: flex;
-    flex-wrap: wrap; /* Allows flex items to wrap on smaller screens */
+    flex-wrap: nowrap; /* Prevents wrapping even on small screens */
+    justify-content: space-between;
+    align-items: flex-start; /* Keeps sidebar aligned with main content */
 }
 
 /* Sidebar styles */
 #sidebar {
-    flex: 1;
-    min-width: 125px;
-    max-width: 150px;
+    flex: 0 0 150px; /* Fixed width of 150px */
     background-color: #ddd;
     padding: 20px;
     border-radius: 8px;
     margin-right: 20px;
-    margin-bottom: 20px;
 }
 
 #sidebar h3 {
@@ -80,7 +79,7 @@ h2 {
 
 /* Main content styles */
 #main-content {
-    flex: 3;
+    flex: 1; /* Take remaining space */
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -138,16 +137,17 @@ th {
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
     .container {
-        flex-direction: row; /* Keep the sidebar and content side by side */
+        flex-wrap: nowrap; /* Keep the sidebar and content side by side */
+        justify-content: flex-start;
     }
 
     #sidebar {
-        min-width: 125px;
-        max-width: 150px;
+        flex: 0 0 125px; /* Smaller fixed width */
+        margin-right: 15px;
     }
 
     #main-content {
-        flex: 3;
+        flex: 1;
     }
 }
 
@@ -160,14 +160,17 @@ th {
         font-size: 1.8em;
     }
 
+    .container {
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+
     #sidebar {
-        min-width: 125px; /* Maintain sidebar minimum width */
-        max-width: 150px;
-        margin-bottom: 15px;
+        flex: 0 0 100px; /* Further reduce sidebar width */
+        margin-right: 10px;
     }
 
     #main-content {
-        flex: 3; /* Keep content flex ratio */
+        flex: 1;
     }
 
     table {
