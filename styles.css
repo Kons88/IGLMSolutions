@@ -1,16 +1,20 @@
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Base styles for the body */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
     padding: 20px;
+    margin: 0;
 }
 
+/* Header styles */
 header {
     text-align: center;
     margin-bottom: 20px;
@@ -26,34 +30,28 @@ h2 {
     color: #555;
 }
 
-h3 {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 10px;
-}
-
+/* General container layout */
 .container {
     display: flex;
+    flex-wrap: wrap; /* Allows flex items to wrap on smaller screens */
 }
 
+/* Sidebar styles */
 #sidebar {
-    width: 200px;
+    flex: 1;
+    min-width: 125px;
+    max-width: 150px;
     background-color: #ddd;
     padding: 20px;
     border-radius: 8px;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 #sidebar h3 {
-    font-size: 1.2em; /* Adjusted for sidebar */
+    font-size: 1.2em;
     color: #333;
     margin-bottom: 10px;
-}
-
-#sidebar h4 {
-    font-size: 1.3em;
-    color: #444;
-    margin-bottom: 5px;
 }
 
 #sidebar ul {
@@ -66,10 +64,11 @@ h3 {
 
 #sidebar ul li a {
     text-decoration: none;
-    font-size: 1.0em;
+    width: 100%;
+    font-size: 1em;
     color: #333;
     background-color: #ccc;
-    padding: 5px;
+    padding: 4px;
     display: block;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -79,26 +78,17 @@ h3 {
     background-color: #bbb;
 }
 
+/* Main content styles */
 #main-content {
-    flex: 1;
+    flex: 3;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.tab {
-    display: inline-block;
-    margin-left: 20px;
-    color: #666;
-}
-
-.exercise-section {
-    display: none;
-}
-
 p, blockquote {
-    font-size: 1.0em;
+    font-size: 1em;
     margin-bottom: 10px;
     color: #666;
 }
@@ -110,6 +100,7 @@ blockquote {
     font-style: italic;
 }
 
+/* Footer styles */
 footer {
     text-align: center;
     margin-top: 20px;
@@ -117,9 +108,10 @@ footer {
     color: #777;
 }
 
+/* Table styles */
 table {
-    width: 40%;
-    margin: 10px auto;
+    width: 40%; /* Set table width */
+    margin: 10px auto; /* Center the table horizontally */
     border-collapse: collapse;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -141,4 +133,47 @@ tr:hover {
 th {
     background-color: #808080;
     color: #EEEEEE;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sidebar and content vertically on tablets */
+    }
+
+    #sidebar {
+        width: 100%; /* Sidebar takes full width */
+        margin-right: 0;
+    }
+
+    #main-content {
+        width: 100%; /* Main content also takes full width */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    h1 {
+        font-size: 2em; /* Reduce header size on phones */
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    #sidebar {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #main-content {
+        width: 100%;
+    }
+
+    table {
+        width: 100%; /* Adjust table to fit mobile screen */
+    }
+
+    th, td {
+        padding: 8px;
+    }
 }
