@@ -137,10 +137,6 @@ th {
 
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack sidebar and content vertically on tablets */
-    }
-
     #sidebar {
         width: 100%; /* Sidebar takes full width */
         margin-right: 0;
