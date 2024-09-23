@@ -136,18 +136,22 @@ th {
 }
 
 /* Responsive Styles */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: row; /* Keep the sidebar and content side by side */
+    }
+
     #sidebar {
-        width: 100%; /* Sidebar takes full width */
-        margin-right: 0;
+        min-width: 125px;
+        max-width: 150px;
     }
 
     #main-content {
-        width: 100%; /* Main content also takes full width */
+        flex: 3;
     }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 480px) {
     h1 {
         font-size: 2em; /* Reduce header size on phones */
     }
@@ -157,12 +161,13 @@ th {
     }
 
     #sidebar {
-        width: 100%;
+        min-width: 125px; /* Maintain sidebar minimum width */
+        max-width: 150px;
         margin-bottom: 15px;
     }
 
     #main-content {
-        width: 100%;
+        flex: 3; /* Keep content flex ratio */
     }
 
     table {
