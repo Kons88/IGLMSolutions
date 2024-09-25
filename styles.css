@@ -12,6 +12,7 @@ body {
     background-color: #f4f4f4;
     padding: 20px;
     margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Header styles */
@@ -87,13 +88,15 @@ h2 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Space at the bottom */
+    margin-bottom: 20px;
+    overflow: hidden; /* Prevent content overflow */
 }
 
 p, blockquote {
     font-size: 1em;
     margin-bottom: 10px;
     color: #666;
+    word-wrap: break-word; /* Ensures long words or URLs break to the next line */
 }
 
 blockquote {
@@ -113,16 +116,18 @@ footer {
 
 /* Table styles */
 table {
-    width: 40%;
+    width: 100%; /* Ensure tables are responsive */
     margin: 10px auto;
     border-collapse: collapse;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    overflow-x: auto; /* Ensure that tables scroll horizontally if necessary */
 }
 
 th, td {
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Ensure text within cells breaks */
 }
 
 tr:nth-child(even) {
@@ -146,20 +151,20 @@ th {
     }
 
     #sidebar {
-        flex: 0; /* Sidebar takes full width */
-        width: 200%;
+        flex: 0;
+        width: 100%;
         margin-right: 0;
     }
 
     #main-content {
-        flex: 0; /* Main content takes full width */
-        width: 150%;
+        flex: 0;
+        width: 100%;
     }
 }
 
 @media only screen and (max-width: 480px) {
     h1 {
-        font-size: 2em; /* Reduce header size on phones */
+        font-size: 2em;
     }
 
     h2 {
@@ -167,28 +172,39 @@ th {
     }
 
     #sidebar {
-        width: 200%;
+        width: 100%;
         margin-bottom: 0;
         padding-bottom: 0;
     }
 
     #main-content {
-        width: 150%;
+        width: 100%;
         margin-bottom: 0;
     }
 
-    /* Adjusting heights to match sidebar and content length */
     .container {
         display: block;
     }
 
     #sidebar, #main-content {
-        min-height: 100vh; /* Make both sections at least full viewport height */
+        min-height: 100vh;
     }
 
-    /* Matching heights using flexbox trick */
     .container {
         display: flex;
         flex-direction: column;
+    }
+
+    /* Ensure images are responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Ensure tables are responsive */
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
     }
 }
