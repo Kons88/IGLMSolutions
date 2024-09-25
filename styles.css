@@ -147,13 +147,13 @@ th {
 
     #sidebar {
         flex: 0; /* Sidebar takes full width */
-        width: 100%;
+        width: 200%;
         margin-right: 0;
     }
 
     #main-content {
         flex: 0; /* Main content takes full width */
-        width: 100%;
+        width: 150%;
     }
 }
 
@@ -167,13 +167,13 @@ th {
     }
 
     #sidebar {
-        width: 100%;
+        width: 200%;
         margin-bottom: 0;
         padding-bottom: 0;
     }
 
     #main-content {
-        width: 100%;
+        width: 150%;
         margin-bottom: 0;
     }
 
