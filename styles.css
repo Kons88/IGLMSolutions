@@ -33,18 +33,21 @@ h2 {
 /* General container layout */
 .container {
     display: flex;
-    flex-wrap: nowrap; /* Prevents wrapping even on small screens */
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start; /* Keeps sidebar aligned with main content */
+    align-items: flex-start;
 }
 
 /* Sidebar styles */
 #sidebar {
-    flex: 0 0 150px; /* Fixed width of 150px */
+    flex: 1;
+    min-width: 125px;
+    max-width: 150px;
     background-color: #ddd;
     padding: 20px;
     border-radius: 8px;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 #sidebar h3 {
@@ -79,11 +82,12 @@ h2 {
 
 /* Main content styles */
 #main-content {
-    flex: 1; /* Take remaining space */
+    flex: 3;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space at the bottom */
 }
 
 p, blockquote {
@@ -109,8 +113,8 @@ footer {
 
 /* Table styles */
 table {
-    width: 40%; /* Set table width */
-    margin: 10px auto; /* Center the table horizontally */
+    width: 40%;
+    margin: 10px auto;
     border-collapse: collapse;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -137,17 +141,19 @@ th {
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
     .container {
-        flex-wrap: nowrap; /* Keep the sidebar and content side by side */
-        justify-content: flex-start;
+        flex-direction: column; /* Stack sidebar and content vertically */
+        align-items: stretch;
     }
 
     #sidebar {
-        flex: 0 0 125px; /* Smaller fixed width */
-        margin-right: 15px;
+        flex: 0; /* Sidebar takes full width */
+        width: 100%;
+        margin-right: 0;
     }
 
     #main-content {
-        flex: 1;
+        flex: 0; /* Main content takes full width */
+        width: 100%;
     }
 }
 
@@ -160,24 +166,29 @@ th {
         font-size: 1.8em;
     }
 
-    .container {
-        flex-wrap: nowrap; /* Prevent wrapping */
-    }
-
     #sidebar {
-        flex: 0 0 100px; /* Further reduce sidebar width */
-        margin-right: 20px;
+        width: 100%;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 
     #main-content {
-        flex: 1;
+        width: 100%;
+        margin-bottom: 0;
     }
 
-    table {
-        width: 100%; /* Adjust table to fit mobile screen */
+    /* Adjusting heights to match sidebar and content length */
+    .container {
+        display: block;
     }
 
-    th, td {
-        padding: 8px;
+    #sidebar, #main-content {
+        min-height: 100vh; /* Make both sections at least full viewport height */
+    }
+
+    /* Matching heights using flexbox trick */
+    .container {
+        display: flex;
+        flex-direction: column;
     }
 }
