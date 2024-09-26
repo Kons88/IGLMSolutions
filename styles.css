@@ -213,7 +213,6 @@ th {
     /* Ensure tables are responsive */
     table {
         width: 80%;
-        display: block;
         overflow-x: auto;
     }
 }
