@@ -119,7 +119,7 @@ footer {
 
 /* Table styles */
 table {
-    width: 100%; /* Ensure tables are responsive */
+    width: 50%; /* Ensure tables are responsive */
     margin: 10px auto;
     border-collapse: collapse;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
