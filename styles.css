@@ -45,6 +45,16 @@ h1, h2 {
 .content section.active {
     display: block;
 }
+
+blockquote {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #666;
+    word-wrap: break-word; /* Ensure text wraps inside containers */
+    padding-left: 15px; /* Space between the text and the vertical bar */
+    border-left: 4px solid #666; /* Adjust the width and color of the vertical bar */
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
