@@ -37,8 +37,65 @@
     <div class="content">
 
         <section id="exercise-1-1" class="active">
-          <h3>Solution for Exercise 1.1</h3>
-          <p>This is the solution for Exercise 1.1...</p>
+          <h3>Exercise 1.1:</h3>
+          <p>Let \(Y_1\) and \(Y_2\) be independent random variables with \(Y_1 \sim \mathcal{N}(1, 3)\) and \(Y_2 \sim \mathcal{N}(2, 5)\). If \(W_1 = Y_1 + 2Y_2\) and \(W_2 = 4Y_1 - Y_2\), what is the joint distribution of \(W_1\) and \(W_2\)?</p>
+          <h4>Solution:</h4>
+          <br />
+          <br />
+          <blockquote>
+            <p><i><u>A reminder from the book (Dobson, Annette J., 1945. An introduction to generalized linear models. Second Edition. pp. 14-15):</u></i></p>
+            <p>1. If the random variable \(Y\) has the Normal distribution with mean \(\mu\) and variance \(\sigma^2\), its probability density function is:
+               $$ f(y;\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}exp[-\frac{1}{2}(\frac{y-\mu}{\sigma^2})^2] $$
+               <span class="tab">We denote this by \(Y \sim \mathcal{N}(\mu,\sigma^2)\).</span>
+            </p>
+            <p>2. The Normal distribution with \(\mu = 0\) and \(\sigma^2 = 1\) \((Y \sim \mathcal{N}(0, 1))\) is called the <strong>standard Normal distribution</strong>.</p>
+            <p>3. Let \(Y_1,…,Y_n\) denote Normally distributed random variables with \(Y_i  \sim \mathcal{N}(\mu_i,\sigma_i^2)\) for \(i = 1,...,n\) and let the covariance of \(Y_i\) and \(Y_j\) be denoted by:
+               $$ cov(Y_i, Y_j)=\rho_{ij} \sigma_i \sigma_j, $$
+               <span class="tab">where \(ρ_{ij}\) is the correlation coefficient for \(Y_i\) and \(Y_j\). Then the joint distribution of the \(Y_i\)’s is the <strong>multivariate Normal distribution</strong> with mean vector \(\mu=[\mu_1,…,\mu_n ]^T\) and variance-covariance matrix \(V\) with diagonal elements \(\sigma_i^2\) and non-diagonal elements \(ρ_{ij} \sigma_i \sigma_j\) for \(i≠j\). We write this as:</span>
+               $$ y \sim \mathcal{N}(\mu, V), where \ \ y = [Y_1, ..., Y_n]^T $$
+            </p>
+            <p>
+               4. Suppose the random variables \(Y_1,…,Y_n\) are independent and normally distributed with the distributions \(Y_i \sim \mathcal{N}(\mu_i,\sigma_i^2)\) for \(i = 1,...,n\). If:
+               $$W = a_1Y_1 + a_2Y_2 + ... + a_nY_n, $$
+               <span class="tab">where the \(a_i\)’s are constants. Then \(W\) is also normally distributed, so that:</span>
+               $$ W=\sum_{i=1}^{n} a_i Y_i \sim \mathcal{N}(\sum_{i=1}^{n} a_i \mu_i \sum_{i=1}^{n} a_i^2 \sigma_i^2 ) $$
+            </p>
+          </blockquote>
+          <br />
+          <hr />
+          <br />
+          <p>It is apparent (from property 4) that the joint distribution of two normally distributed variables is yet another normal distribution. In this exercise, in order to find the joint distribution of \(W_1\) and \(W_2\), we first need to determine the mean, the variance and the covariance of \(W_1\) and \(W_2\) and then use those to derive the joint distribution.</p>
+          <br>
+          <p>Given that:</p>
+          <p>\(Y_1 \sim \mathcal{N}(1, 3)\) and </p>
+          <p>\(Y_2 \sim \mathcal{N}(2, 5)\)</p>
+          <br>
+          <p>First, let us find the means of \(W_1\) and \(W_2\):</p>
+          <p>\(E(W_1 )=E(Y_1+2 \cdot Y_2 )=E(Y_1 )+2 \cdot E(Y_2 )=1+2\cdot2=5 \Rightarrow E(W_1 )=5\)</p>
+          <p>\(E(W_2 )=E(4 \cdot Y_1-Y_2)=4 \cdot E(Y_1 )-E(Y_2 )=4\cdot1-2=2 \Rightarrow E(W_2 )=2\)</p>
+          <br>
+          <p>Next, let us calculate the variances of \(W_1\) and \(W_2\):</p>
+          <p>\(Var(W_1)=Var(Y_1+2 \cdot Y_2)=Var(Y_1)+2^2 \cdot Var(Y_2)=3+4\cdot5=23 \Rightarrow Var(W_1)=23\)</p>
+          <p>\(Var(W_2)=Var(4 \cdot Y_1-Y_2)=4^2 \cdot Var(Y_1)+Var(Y_2)=16 \cdot 3+5=53 \Rightarrow Var(W_2)=53\)</p>
+          <br>
+          <p>And finally, let us also compute the covariance between \(W_1\) and \(W_2\):</p>
+          <p>\(Cov(W_1,W_2)=Cov(Y_1+2 \cdot Y_2,4 \cdot Y_1-Y_2)=Cov(Y_1, 4 \dot Y_1)+Cov(Y_1,-Y_2)+Cov(2 \cdot Y_2, 4 \cdot Y_1 )+Cov(2 \cdot Y_2,-Y_2 )=\)
+          <p>\(=4 \cdot Var(Y_1)-Cov(Y_1,Y_2)+8 \cdot Cov(Y_2,Y_1)-2 \cdot Var(Y_2)=4 \cdot 3-0+8 \cdot 0-2 \cdot 5=2 \Rightarrow Cov(W_1,W_2 )=2 \)</p>
+          <br />
+          <p>Therefore, the joint distribution will be:</p>
+          <p>$$ \begin{bmatrix} W_1 \\ W_2 \end{bmatrix} \sim \mathcal{N} \left( \begin{bmatrix} 5 \\ 2 \end{bmatrix}, \begin{bmatrix} 23 & 2 \\ 2 & 53 \end{bmatrix} \right) $$</p>
+          <br />
+          <p>The correlation coefficient between \(W_1\) and \(W_2\) in this case shall be:</p>
+          <p>$$ \rho=\frac{Cov(W_1,W_2)}{\sigma_(W_1 ) \cdot \sigma_(W_2)}=\frac{Cov(W_1,W_2)}{\sqrt{Var(W_1)} \cdot \sqrt{Var(W_2)}}=\frac{2}{\sqrt{23} \cdot \sqrt{53}} \approx \frac{2}{4.8 \cdot 7.3} \approx 0.057 \Rightarrow  ρ=0.057 $$</p>
+          <br />
+          <p>Therefore, another way to express the joint distribution, would be:</p>
+          <p>$$ f(W_1,W_2)= \frac{1}{2 \cdot \pi \cdot \sigma_{W_1} \cdot \sigma_{W_2} \cdot \sqrt{1-ρ^2}} exp[-\frac{Z_{W_1}^2-2 \cdot Z_{W_1} \cdot Z_{W_2}+Z_{W_2}^2}{2 \cdot \sqrt{1-\rho^2}}] \Rightarrow $$</p>
+          <p>$$ \Rightarrow f(W_1,W_2)=\frac{1}{2 \cdot \pi \cdot 4.8 \cdot 7.3 \cdot \sqrt{1-0.057^2}} exp[-\frac{Z_{W_1}^2-2 \cdot Z_{W_1} \cdot Z_{W_2}+Z_{W_2}^2}{2 \cdot \sqrt{1-0.057^2 }}] $$</p>
+          <br />
+          <p>where:</p>
+          <p>\( Z_{W_1}=\frac{W_1 - \mu_{W_1} }{ \sigma_{W_1}} \)</p>
+          <p>\( Z_{W_2}=\frac{W_2 - \mu_{W_2} }{ \sigma_{W_2}} \)</p>
+          <br />
         </section>
 
         <section id="exercise-1-2">
