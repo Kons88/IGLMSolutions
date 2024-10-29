@@ -1,29 +1,53 @@
+/* General styling */
 body {
     margin: 0;
     font-family: Verdana, sans-serif;
 }
+
+/* Header styling */
 header {
-    background-color: #800020; /* bordo color */
+    background: linear-gradient(135deg, #800020, #4d0014); /* Gradient effect */
     color: white;
-    text-align: center;
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    position: relative;
+    z-index: 3;
 }
-h1, h2 {
+
+/* Title container for stacked h1 and h2 */
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+.title-container h1 {
+    font-size: 1.8em; /* Larger font for title */
+    font-weight: bold;
     margin: 0;
 }
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
+
+.title-container h2 {
+    font-size: 1em; /* Smaller font for subtitle */
+    font-weight: normal;
+    opacity: 0.85; /* Slight transparency */
+    margin: 0;
 }
+
+/* Sidebar styling */
 .sidebar {
-    flex: 1;
+    width: 250px;
     background-color: #f0f0f0;
     padding: 20px;
-    max-width: 250px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    z-index: 2; /* Bring sidebar above the overlay */
 }
+
 .sidebar a {
     display: block;
     padding: 10px 0;
@@ -34,51 +58,86 @@ h1, h2 {
 .sidebar a:hover {
     background-color: #ddd;
 }
-.content {
-    flex: 3;
-    padding: 20px;
-    background-color: #fff;
-    width: 100%;
-}
-.content section {
+
+/* Content overlay styling */
+.content-overlay {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Main content styling */
+.container {
+    display: flex;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 0;
+}
+
+.content section {
+    display: none; /* Hide all sections by default */
 }
 .content section.active {
-    display: block;
+    display: block; /* Only show the section with the active class */
 }
 
-blockquote {
-    font-size: 1em;
-    margin-bottom: 10px;
-    color: #666;
-    word-wrap: break-word; /* Ensure text wraps inside containers */
-    padding-left: 15px; /* Space between the text and the vertical bar */
-    border-left: 4px solid #666; /* Adjust the width and color of the vertical bar */
-}
 
-/* Sidebar toggle button style */
+/* Menu toggle button - hidden by default on large screens */
 .toggle-sidebar {
-    display: none; /* Hide by default */
-    background-color: #800020;
+    display: none;
+    background-color: transparent;
     color: white;
-    border: none;
-    font-size: 1.5em;
-    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 1.2em;
+    padding: 5px 10px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Adjust layout for small screens */
+/* Hover effect for menu button */
+.toggle-sidebar:hover {
+    background-color: white;
+    color: #800020;
+}
+
+/* Responsive styling */
 @media (max-width: 768px) {
+    /* Show the toggle button and hide the sidebar */
     .toggle-sidebar {
-        display: block; /* Show the toggle button */
+        display: block;
     }
+
+    .title-container h1 {
+    font-size: 1.5em;
+    }
+
+    .title-container h2 {
+        font-size: 0.9em;
+    }
+
     .sidebar {
-        position: absolute;
-        width: 100%;
+        position: fixed;
+        top: 60px;
+        left: -350px; /* Hide off-screen initially */
+        width: 300px; /* Sidebar width */
+        height: 100%;
         transition: transform 0.3s ease;
-        transform: translateX(-100%); /* Hidden by default on small screens */
+        z-index: 2;
     }
     .sidebar.collapsed {
-        transform: translateX(0); /* Slide in when not collapsed */
+        transform: translateX(350px); /* Slide in when open */
+    }
+    .content-overlay.active {
+        display: block; /* Show overlay when sidebar is open */
     }
 }
