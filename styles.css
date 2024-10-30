@@ -59,7 +59,7 @@ blockquote {
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     padding-top: 130px; /* Adjust based on the header height */
-    padding-bottom: 80px; /* Add space at the end */
+    padding-bottom: 100px; /* Add space at the end */
     overflow-y: auto; /* Enable vertical scrolling */
     max-height: calc(100vh - 80px); /* Adjust based on header height */
 }
@@ -148,7 +148,9 @@ blockquote {
         left: -350px; /* Hide off-screen initially */
         width: 300px; /* Sidebar width */
         height: 100%;
-        padding-bottom: 80px; /* Add space at the end */
+        padding-bottom: 100px; /* Add space at the end */
+        overflow-y: auto; /* Enable vertical scrolling */
+        max-height: calc(100vh - 80px); /* Adjust based on header height */
         transition: transform 0.3s ease;
         z-index: 2;
     }
