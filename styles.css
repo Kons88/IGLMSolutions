@@ -6,14 +6,16 @@ body {
 
 /* Header styling */
 header {
-    background: linear-gradient(135deg, #800020, #4d0014); /* Gradient effect */
+    background: linear-gradient(135deg, #800020, #4d0014);
     color: white;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
-    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: -10;
+    width: 100%;
     z-index: 3;
 }
 
@@ -56,6 +58,9 @@ blockquote {
     background-color: #f0f0f0;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding-top: 130px; /* Adjust based on the header height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: calc(100vh - 80px); /* Adjust based on header height */
 }
 
 .sidebar a {
@@ -88,6 +93,7 @@ blockquote {
 .content {
     flex: 1;
     padding: 20px;
+    padding-top: 130px; /* Same height as the header */
     overflow-y: auto;
     background-color: #fff;
     z-index: 0;
@@ -103,7 +109,7 @@ blockquote {
 
 /* Menu toggle button - hidden by default on large screens */
 .toggle-sidebar {
-    display: none;
+    display: none; /* Hide it by default */
     background-color: transparent;
     color: white;
     border: 2px solid white;
