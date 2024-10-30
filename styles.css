@@ -143,17 +143,17 @@ blockquote {
     }
 
     .sidebar {
-        position: fixed;
-        top: 60px;
-        left: -350px; /* Hide off-screen initially */
-        width: 300px; /* Sidebar width */
-        height: 100%;
-        padding-bottom: 100px; /* Add space at the end */
-        overflow-y: auto; /* Enable vertical scrolling */
-        max-height: calc(100vh - 80px); /* Adjust based on header height */
-        transition: transform 0.3s ease;
-        z-index: 2;
+    position: fixed;
+    top: 60px; /* Aligns with header height */
+    left: -350px; /* Initially hidden off-screen */
+    width: 300px;
+    max-height: calc(100vh - 60px); /* Viewport height minus header */
+    padding-bottom: 20px; /* Slight padding for spacing */
+    overflow-y: auto; /* Enable scrolling */
+    transition: transform 0.3s ease;
+    z-index: 2;
     }
+    
     .sidebar.collapsed {
         transform: translateX(350px); /* Slide in when open */
     }
