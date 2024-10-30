@@ -144,16 +144,16 @@ blockquote {
 
     .sidebar {
     position: fixed;
-    top: 40px; /* Aligns with header height */
+    top: 10px; /* Aligns with header height */
     left: -350px; /* Initially hidden off-screen */
     width: 300px;
-    max-height: calc(100vh - 60px); /* Viewport height minus header */
-    padding-bottom: 20px; /* Slight padding for spacing */
+    max-height: calc(100vh - 10px); /* Viewport height minus header */
+    padding-bottom: 100px; /* Slight padding for spacing */
     overflow-y: auto; /* Enable scrolling */
     transition: transform 0.3s ease;
     z-index: 2;
     }
-    
+
     .sidebar.collapsed {
         transform: translateX(350px); /* Slide in when open */
     }
