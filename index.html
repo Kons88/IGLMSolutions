@@ -218,6 +218,16 @@
 </div>
 
 <script>
+    window.addEventListener("scroll", function() {
+      const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+    });
+
+
     // Function to toggle sidebar on button click
     function toggleSidebar() {
         document.querySelector('.sidebar').classList.toggle('collapsed');

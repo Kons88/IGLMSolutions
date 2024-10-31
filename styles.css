@@ -19,6 +19,21 @@ header {
     z-index: 3;
 }
 
+header.scrolled {
+    /*background: rgba(128, 0, 32, 0.8);*/ /* Add transparency */
+    padding: 2px; /* Reduce padding for smaller height */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow for smaller size */
+    transition: background 0.3s, padding 0.3s;
+}
+
+header.scrolled h1 {
+    font-size: 1em; /* Reduce title size */
+}
+
+header.scrolled h2 {
+    font-size: 0.7em; /* Reduce subtitle size */
+}
+
 
 blockquote {
     font-size: 1em;
