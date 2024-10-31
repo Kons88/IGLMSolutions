@@ -149,7 +149,7 @@ blockquote {
     width: 300px;
     padding-bottom: 100px; /* Slight padding for spacing */
     overflow-y: auto; /* Enable scrolling */
-    max-height: calc(100vh - 110px);
+    max-height: calc(100vh - 130px);
     transition: transform 0.3s ease;
     z-index: 2;
     }
