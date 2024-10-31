@@ -135,8 +135,8 @@ blockquote {
     }
 
     blockquote {
-        left: -10px;
-        padding-left: 10px; /* Reduce left padding */
+        margin-left: 0px;
+        padding-left: 20px; /* Reduce left padding */
         border-left: 3px solid #666; /* Adjust border width as needed */
     }
 
