@@ -61,6 +61,7 @@ blockquote {
     padding-top: 130px; /* Adjust based on the header height */
     padding-bottom: 100px; /* Add space at the end */
     overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh;
 }
 
 .sidebar a {
@@ -148,6 +149,7 @@ blockquote {
     width: 300px;
     padding-bottom: 100px; /* Slight padding for spacing */
     overflow-y: auto; /* Enable scrolling */
+    max-height: 100vh;
     transition: transform 0.3s ease;
     z-index: 2;
     }
