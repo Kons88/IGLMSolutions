@@ -144,7 +144,7 @@ blockquote {
 
     .sidebar {
     position: fixed;
-    top: 10px; /* Aligns with header height */
+    top: 0px; /* Aligns with header height */
     left: -350px; /* Initially hidden off-screen */
     width: 300px;
     padding-bottom: 100px; /* Slight padding for spacing */
