@@ -146,7 +146,7 @@ blockquote {
     position: fixed;
     top: 0px; /* Aligns with header height */
     left: -350px; /* Initially hidden off-screen */
-    width: 300px;
+    width: 200px;
     padding-bottom: 100px; /* Slight padding for spacing */
     overflow-y: auto; /* Enable scrolling */
     max-height: calc(100vh - 150px);
