@@ -50,8 +50,11 @@
     <div class="content-overlay" onclick="toggleSidebar()"></div>
     <div class="content">
       <section id="exercise-1-1" class="active">
-        <h3>Exercise 1.1:</h3>
-        <p>Let \(Y_1\) and \(Y_2\) be independent random variables with \(Y_1 \sim \mathcal{N}(1, 3)\) and \(Y_2 \sim \mathcal{N}(2, 5)\). If \(W_1 = Y_1 + 2Y_2\) and \(W_2 = 4Y_1 - Y_2\), what is the joint distribution of \(W_1\) and \(W_2\)?</p>
+        <div class="problem">
+          <h3>Exercise 1.1:</h3>
+          <p>Let \(Y_1\) and \(Y_2\) be independent random variables with \(Y_1 \sim \mathcal{N}(1, 3)\) and \(Y_2 \sim \mathcal{N}(2, 5)\). If \(W_1 = Y_1 + 2Y_2\) and \(W_2 = 4Y_1 - Y_2\), what is the joint distribution of \(W_1\) and \(W_2\)?</p>
+        </div>
+        <div class="solution">
         <h4>Solution:</h4>
         <br />
         <br />
@@ -109,6 +112,8 @@
         <p>\( Z_{W_1}=\frac{W_1 - \mu_{W_1} }{ \sigma_{W_1}} \)</p>
         <p>\( Z_{W_2}=\frac{W_2 - \mu_{W_2} }{ \sigma_{W_2}} \)</p>
         <br />
+
+      </div>
       </section>
 
       <section id="exercise-1-2">
@@ -218,67 +223,80 @@
 </div>
 
 <script>
-    window.addEventListener("scroll", function() {
+  window.addEventListener("scroll", function() {
       const header = document.querySelector("header");
-        if (window.scrollY > 50) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
-    });
+      const sidebar = document.querySelector('.sidebar');
+      const contentOverlay = document.querySelector('.content-overlay');
 
+      // Check if the screen width is less than or equal to 768px (small screens)
+      if (window.innerWidth <= 768) {
+          if (window.scrollY > 50) {
+              header.classList.add("scrolled");
+              sidebar.classList.add("collapsed"); // Collapse the sidebar
+              contentOverlay.classList.remove("active"); // Hide the overlay
+          } else {
+              header.classList.remove("scrolled");
+              sidebar.classList.remove("collapsed"); // Expand the sidebar
+          }
+      } else {
+          // For larger screens, keep the sidebar visible
+          sidebar.classList.remove("collapsed");
+      }
+  });
 
-    // Function to toggle sidebar on button click
-    function toggleSidebar() {
-        document.querySelector('.sidebar').classList.toggle('collapsed');
-        document.querySelector('.content-overlay').classList.toggle('active');
-    }
+  // Function to toggle sidebar on button click
+  function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const contentOverlay = document.querySelector('.content-overlay');
+      sidebar.classList.toggle('collapsed');
+      contentOverlay.classList.toggle('active');
+  }
 
-    // Function to update header text based on screen size
-    function updateHeaderText() {
-        const mainTitle = document.getElementById("main-title");
-        const subtitle = document.getElementById("subtitle");
+  // Function to update header text based on screen size
+  function updateHeaderText() {
+      const mainTitle = document.getElementById("main-title");
+      const subtitle = document.getElementById("subtitle");
 
-        if (window.innerWidth <= 768) {
-            mainTitle.textContent = "IGLM - Solutions";
-            subtitle.style.display = "none";
-        } else {
-            mainTitle.textContent = "An Introduction to Generalized Linear Models - Solutions";
-            subtitle.style.display = "block";
-        }
-    }
+      if (window.innerWidth <= 768) {
+          mainTitle.textContent = "IGLM - Solutions";
+          subtitle.style.display = "none";
+      } else {
+          mainTitle.textContent = "An Introduction to Generalized Linear Models - Solutions";
+          subtitle.style.display = "block";
+      }
+  }
 
-    // Ensure each sidebar link shows the correct exercise section
-    document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
+  // Ensure each sidebar link shows the correct exercise section
+  document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', function(e) {
+              e.preventDefault();
 
-                // Get the target exercise id from the clicked link's data attribute
-                const exerciseId = this.getAttribute('data-exercise');
+              // Get the target exercise id from the clicked link's data attribute
+              const exerciseId = this.getAttribute('data-exercise');
 
-                // Hide all sections
-                document.querySelectorAll('.content section').forEach(section => {
-                    section.classList.remove('active');
-                });
+              // Hide all sections
+              document.querySelectorAll('.content section').forEach(section => {
+                  section.classList.remove('active');
+              });
 
-                // Show the selected exercise section
-                const targetSection = document.getElementById(exerciseId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                }
+              // Show the selected exercise section
+              const targetSection = document.getElementById(exerciseId);
+              if (targetSection) {
+                  targetSection.classList.add('active');
+              }
 
-                // Collapse the sidebar on small screens after selecting an exercise
-                if (window.innerWidth <= 768) {
-                    toggleSidebar();
-                }
-            });
-        });
-    });
+              // Collapse the sidebar on small screens after selecting an exercise
+              if (window.innerWidth <= 768) {
+                  toggleSidebar();
+              }
+          });
+      });
+  });
 
-    // Run functions on initial load and resize
-    window.addEventListener("load", updateHeaderText);
-    window.addEventListener("resize", updateHeaderText);
+  // Run functions on initial load and resize
+  window.addEventListener("load", updateHeaderText);
+  window.addEventListener("resize", updateHeaderText);
 </script>
 
 
