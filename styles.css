@@ -14,37 +14,26 @@ header {
     justify-content: space-between;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: fixed;
-    top: -10;
+    top: 0;
     width: 100%;
     z-index: 3;
+    transition: padding 0.3s, box-shadow 0.3s;
 }
 
 header.scrolled {
-    /*background: rgba(128, 0, 32, 0.8);*/ /* Add transparency */
-    padding: 2px; /* Reduce padding for smaller height */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow for smaller size */
-    transition: background 0.3s, padding 0.3s;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-header.scrolled h1 {
-    font-size: 1em; /* Reduce title size */
+header.scrolled .title-container h1 {
+    font-size: 1.5em;
 }
 
-header.scrolled h2 {
-    font-size: 0.7em; /* Reduce subtitle size */
+header.scrolled .title-container h2 {
+    font-size: 0.8em;
 }
 
-
-blockquote {
-    font-size: 1em;
-    margin-bottom: 10px;
-    color: #666;
-    word-wrap: break-word; /* Ensure text wraps inside containers */
-    padding-left: 15px; /* Space between the text and the vertical bar */
-    border-left: 4px solid #666; /* Adjust the width and color of the vertical bar */
-}
-
-/* Title container for stacked h1 and h2 */
+/* Title container */
 .title-container {
     display: flex;
     flex-direction: column;
@@ -52,31 +41,43 @@ blockquote {
     flex-grow: 1;
     text-align: center;
     padding: 10px;
+    transition: all 0.3s;
 }
 
 .title-container h1 {
-    font-size: 1.8em; /* Larger font for title */
+    font-size: 1.8em;
     font-weight: bold;
     margin: 0;
+    transition: font-size 0.3s;
 }
 
 .title-container h2 {
-    font-size: 1em; /* Smaller font for subtitle */
+    font-size: 1em;
     font-weight: normal;
-    opacity: 0.85; /* Slight transparency */
+    opacity: 0.85;
     margin: 0;
+    transition: font-size 0.3s;
 }
 
 /* Sidebar styling */
 .sidebar {
-    width: 250px;
+    width: 180px;
     background-color: #f0f0f0;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    padding-top: 130px; /* Adjust based on the header height */
-    padding-bottom: 50px; /* Add space at the end */
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 100vh;
+    padding-top: 130px;
+    padding-bottom: 50px;
+    overflow-y: auto;
+    max-height: 80vh;
+    position: fixed;
+    left: -250px; /* Initially hidden */
+    top: 0;
+    transition: transform 0.3s;
+    z-index: 2;
+}
+
+.sidebar.active {
+    transform: translateX(250px);
 }
 
 .sidebar a {
@@ -86,6 +87,7 @@ blockquote {
     color: #333;
     border-bottom: 1px solid #ddd;
 }
+
 .sidebar a:hover {
     background-color: #ddd;
 }
@@ -102,8 +104,15 @@ blockquote {
     z-index: 1;
 }
 
+.content-overlay.active {
+    display: block;
+}
+
 /* Problem and Solution Styling */
 .problem {
+    overflow-x: auto;
+    overflow-y: auto;
+    word-wrap: break-word;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
@@ -112,6 +121,9 @@ blockquote {
 }
 
 .solution {
+    overflow-x: auto;
+    overflow-y: auto;
+    word-wrap: break-word;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -119,30 +131,37 @@ blockquote {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+
+
 /* Main content styling */
 .container {
     display: flex;
 }
+
 .content {
     flex: 1;
     padding: 20px;
-    padding-top: 130px; /* Same height as the header */
+    padding-top: 130px;
     overflow-y: auto;
     background-color: #fff;
     z-index: 0;
+    transition: margin-left 0.3s; /* Add transition for content shift */
+}
+
+.content.sidebar-visible {
+    margin-left: 250px; /* Push content when sidebar is visible */
 }
 
 .content section {
-    display: none; /* Hide all sections by default */
+    display: none;
 }
+
 .content section.active {
-    display: block; /* Only show the section with the active class */
+    display: block;
 }
 
-
-/* Menu toggle button - hidden by default on large screens */
+/* Menu toggle button */
 .toggle-sidebar {
-    display: none; /* Hide it by default */
     background-color: transparent;
     color: white;
     border: 2px solid white;
@@ -151,51 +170,38 @@ blockquote {
     padding: 5px 10px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    /* Make it visible on all screen sizes */
+    display: block; /* Remove the media query hiding it */
+    z-index: 3; /* Ensure it's above other elements */
 }
 
-/* Hover effect for menu button */
 .toggle-sidebar:hover {
     background-color: white;
     color: #800020;
 }
 
-/* Responsive styling */
+/* Responsive styling (for smaller screens) */
 @media (max-width: 768px) {
-    /* Show the toggle button and hide the sidebar */
-    .toggle-sidebar {
-        display: block;
+    .sidebar {
+        left: -250px; /* Initially hidden */
     }
 
-    blockquote {
-        margin-left: 0px;
-        padding-left: 20px; /* Reduce left padding */
-        border-left: 3px solid #666; /* Adjust border width as needed */
+    .sidebar.active {
+        transform: translateX(250px);
+    }
+
+    .content {
+        padding-top: 70px; /* Adjust padding for smaller header */
+    }
+    header{
+        padding: 10px;
     }
 
     .title-container h1 {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Adjust title size on small screens */
     }
 
     .title-container h2 {
-        font-size: 0.9em;
-    }
-
-    .sidebar {
-    position: fixed;
-    top: 0px; /* Aligns with header height */
-    left: -350px; /* Initially hidden off-screen */
-    width: 200px;
-    padding-bottom: 100px; /* Slight padding for spacing */
-    overflow-y: auto; /* Enable scrolling */
-    max-height: calc(100vh - 150px);
-    transition: transform 0.3s ease;
-    z-index: 2;
-    }
-
-    .sidebar.collapsed {
-        transform: translateX(350px); /* Slide in when open */
-    }
-    .content-overlay.active {
-        display: block; /* Show overlay when sidebar is open */
+        display: none; /* Hide subtitle on small screens */
     }
 }
