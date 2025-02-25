@@ -131,6 +131,16 @@ header.scrolled .title-container h2 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+blockquote {
+  font-style: italic;
+  color: #555;
+  border-left: 4px solid #525e75;
+  padding-left: 15px;
+  margin: 20px 0;
+  background: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
 
 
 /* Main content styling */
